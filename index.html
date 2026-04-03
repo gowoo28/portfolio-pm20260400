@@ -7,7 +7,13 @@
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
   <title>박상현 포트폴리오</title>
   <style>
-    body { font-family: "Pretendard", sans-serif; }
+    /* 기본 폰트 설정 보완 */
+    body { 
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
     .floating { animation: floating 3s ease-in-out infinite; }
     @keyframes floating {
       0%, 100% { transform: translateY(0); }
@@ -24,29 +30,31 @@
       to { transform: rotate(360deg); }
     }
     
+    /* 모바일 스와이프 안내 애니메이션 */
     @keyframes swipe {
       0%, 100% { transform: translateX(0); }
       50% { transform: translateX(-6px); }
     }
     .animate-swipe { animation: swipe 1.5s ease-in-out infinite; }
 
-    .break-keep { word-break: keep-all; }
+    .break-keep { word-break: keep-all; overflow-wrap: break-word; }
 
+    /* 가로 스크롤 스크롤바 숨기기 (사파리 포함) */
     .overflow-x-auto::-webkit-scrollbar {
       display: none;
+      width: 0;
+      height: 0;
     }
     .overflow-x-auto {
       -ms-overflow-style: none;
       scrollbar-width: none;
+      -webkit-overflow-scrolling: touch; /* 사파리 부드러운 스크롤 */
     }
     
     .no-select {
       user-select: none;
       -webkit-user-drag: none;
-    }
-    
-    .scroll-container {
-      -webkit-overflow-scrolling: touch;
+      -webkit-user-select: none;
     }
   </style>
 </head>
@@ -117,7 +125,6 @@
   </section>
 
   <section id="resume" class="py-24 md:py-32 bg-white relative z-20 border-t border-slate-100 overflow-hidden">
-    
     <div class="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
       <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[120px]"></div>
       <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-indigo-50/40 rounded-full blur-[150px]"></div>
@@ -127,7 +134,6 @@
     </div>
 
     <div class="max-w-6xl mx-auto px-6 relative z-10">
-      
       <div class="flex flex-col md:flex-row items-center md:items-end justify-between border-b-4 border-slate-900 pb-12 mb-16 gap-10">
         <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           <div class="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden bg-slate-100 shadow-inner border border-slate-100">
@@ -232,14 +238,10 @@
                  <span class="text-white text-2xl hover:scale-110 transition-transform">🏆</span>
               </div>
               <p class="text-blue-100 font-bold uppercase tracking-[0.3em] text-xs md:text-sm mb-4 opacity-80">December 2023 / Industry Achievement</p>
-              
               <div class="text-white break-keep mb-8 flex flex-col gap-2">
                 <p class="text-xl md:text-2xl font-bold opacity-90 leading-snug">한국공공브랜드 대상</p>
-                <h5 class="text-2xl md:text-4xl font-black leading-tight">
-                  정부·브랜드 캠페인 부문 대상
-                </h5>
+                <h5 class="text-2xl md:text-4xl font-black leading-tight">정부·브랜드 캠페인 부문 대상</h5>
               </div>
-
               <div class="px-5 py-2 bg-white text-blue-600 rounded-full font-black text-xs md:text-sm uppercase tracking-widest shadow-md">
                 한국공공브랜드진흥원 · 산업통상부
               </div>
@@ -256,7 +258,6 @@
         </div>
         
         <div class="relative w-full carousel-wrapper max-w-7xl mx-auto px-4">
-          
           <div class="swipe-indicator absolute top-4 right-6 z-50 md:hidden pointer-events-none transition-opacity duration-500 animate-swipe">
             <span class="bg-slate-900/80 text-white text-[11px] font-bold px-3 py-2 rounded-full shadow-lg flex items-center gap-1.5 backdrop-blur-sm">
               <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
@@ -266,7 +267,6 @@
           </div>
 
           <div class="scroll-container flex flex-nowrap items-center justify-start lg:justify-center -space-x-5 lg:-space-x-8 py-10 px-6 overflow-x-auto lg:overflow-visible bg-transparent snap-x snap-mandatory cursor-grab active:cursor-grabbing w-full">
-            
             <div class="flex-shrink-0 relative z-10 group/item cursor-pointer hover:z-50 transition-all duration-300 snap-center">
               <div class="relative flex items-center justify-center w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] border border-blue-400 rounded-full bg-transparent group-hover/item:bg-blue-600 group-hover/item:border-blue-600 group-hover/item:scale-105 group-hover/item:shadow-2xl transition-all duration-300 ease-out bg-slate-50">
                 <div class="flex flex-col items-center justify-center text-center gap-1.5 w-full px-4 max-w-[140px] lg:max-w-[200px]">
@@ -274,7 +274,6 @@
                 </div>
               </div>
             </div>
-
             <div class="flex-shrink-0 relative z-20 group/item cursor-pointer hover:z-50 transition-all duration-300 snap-center">
               <div class="relative flex items-center justify-center w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] border border-blue-400 rounded-full bg-transparent group-hover/item:bg-blue-600 group-hover/item:border-blue-600 group-hover/item:scale-105 group-hover/item:shadow-2xl transition-all duration-300 ease-out bg-slate-50">
                 <div class="flex flex-col items-center justify-center text-center gap-1.5 w-full px-4 max-w-[140px] lg:max-w-[200px]">
@@ -282,7 +281,6 @@
                 </div>
               </div>
             </div>
-
             <div class="flex-shrink-0 relative z-30 group/item cursor-pointer hover:z-50 transition-all duration-300 snap-center">
               <div class="relative flex items-center justify-center w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] border border-blue-400 rounded-full bg-transparent group-hover/item:bg-blue-600 group-hover/item:border-blue-600 group-hover/item:scale-105 group-hover/item:shadow-2xl transition-all duration-300 ease-out bg-slate-50">
                 <div class="flex flex-col items-center justify-center text-center gap-1.5 w-full px-4 max-w-[140px] lg:max-w-[200px]">
@@ -290,7 +288,6 @@
                 </div>
               </div>
             </div>
-
             <div class="flex-shrink-0 relative z-40 group/item cursor-pointer hover:z-50 transition-all duration-300 snap-center">
               <div class="relative flex items-center justify-center w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] border border-blue-400 rounded-full bg-transparent group-hover/item:bg-blue-600 group-hover/item:border-blue-600 group-hover/item:scale-105 group-hover/item:shadow-2xl transition-all duration-300 ease-out bg-slate-50">
                 <div class="flex flex-col items-center justify-center text-center gap-1.5 w-full px-4 max-w-[140px] lg:max-w-[200px]">
@@ -298,7 +295,6 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -306,13 +302,11 @@
   </section>
 
   <section id="portfolio" class="pt-16 pb-24 md:pt-24 md:pb-32 bg-slate-100 relative z-10 border-t border-slate-200 overflow-hidden">
-    
     <div class="absolute top-6 md:top-8 left-0 w-full overflow-hidden leading-none select-none opacity-[0.03] pointer-events-none z-0">
       <h2 class="text-[15vw] font-black whitespace-nowrap uppercase text-slate-900">PORTFOLIO</h2>
     </div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10 pt-8 md:pt-24">
-      
       <div class="flex items-center gap-6 mb-16 md:mb-24 w-full max-w-4xl mx-auto">
         <h4 class="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter">Planning</h4>
         <div class="h-1 flex-grow bg-slate-200 hidden md:block"></div>
@@ -324,9 +318,7 @@
         </div>
 
         <div class="relative w-full max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-200">
-          
           <div class="relative carousel-wrapper">
-            
             <div class="swipe-indicator absolute top-1/2 right-2 -translate-y-1/2 z-40 md:hidden pointer-events-none transition-opacity duration-500 animate-swipe">
               <span class="bg-slate-900/80 text-white text-[11px] font-bold px-3 py-2 rounded-full shadow-lg flex items-center gap-1.5 backdrop-blur-sm">
                 <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
@@ -334,11 +326,9 @@
                 <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
               </span>
             </div>
-
             <button class="prev-btn absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-slate-200 rounded-full items-center justify-center text-slate-600 shadow-xl z-50 hover:text-blue-600 hover:scale-110 hidden md:flex transition-all">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
-
             <div class="scroll-container flex flex-nowrap gap-6 overflow-x-auto pb-4 snap-x snap-mandatory items-center cursor-grab active:cursor-grabbing">
               <div class="flex-shrink-0 w-[85%] md:w-[480px] aspect-video group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
                 <img src="https://i.postimg.cc/905kwrfx/dong-osigpumpeiji1.jpg" alt="제안서 페이지 1" class="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
@@ -359,7 +349,6 @@
                 <img src="https://i.postimg.cc/4N10n4RD/gongjehoe-peiji-3.jpg" alt="제안서 페이지 6" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
             </div>
-            
             <button class="next-btn absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-slate-200 rounded-full items-center justify-center text-slate-600 shadow-xl z-50 hover:text-blue-600 hover:scale-110 hidden md:flex transition-all">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
             </button>
@@ -385,9 +374,7 @@
         </div>
 
         <div class="relative w-full max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-200">
-          
           <div class="relative carousel-wrapper">
-            
             <div class="swipe-indicator absolute top-1/2 right-2 -translate-y-1/2 z-40 md:hidden pointer-events-none transition-opacity duration-500 animate-swipe">
               <span class="bg-slate-900/80 text-white text-[11px] font-bold px-3 py-2 rounded-full shadow-lg flex items-center gap-1.5 backdrop-blur-sm">
                 <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
@@ -395,11 +382,9 @@
                 <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
               </span>
             </div>
-
             <button class="prev-btn absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-slate-200 rounded-full items-center justify-center text-slate-600 shadow-xl z-50 hover:text-teal-600 hover:scale-110 hidden md:flex transition-all">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
-
             <div class="scroll-container flex flex-nowrap gap-6 overflow-x-auto pb-4 snap-x snap-mandatory items-center cursor-grab active:cursor-grabbing">
               <div class="flex-shrink-0 w-[85%] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
                 <img src="https://i.postimg.cc/LXNT251N/beomgugmin-eneoji-jeol-yag-halu-1k-Wh-jul-igi-gongdongkaempein-haengdong-yubalpyeon(hajeolgi)-40cho-MASTER-mp4-000004838.png" alt="에너지 캠페인 광고 1" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
@@ -423,8 +408,7 @@
                 <img src="https://i.postimg.cc/zBtn4Qs2/2025nyeon-beomgugmin-eneojijeol-yag-gongdongkaempein-dongjeolgi-gwang-go(40s)-MASTER-mp4-000039998.png" alt="에너지 캠페인 광고 7" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
             </div>
-            
-            <button class="next-btn absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-slate-200 rounded-full items-center justify-center text-slate-600 shadow-xl z-50 hover:text-teal-600 hover:scale-110 hidden md:flex transition-all">
+            <button class="next-btn absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-slate-200 rounded-full items-center justify-center text-slate-600 shadow-xl z-50 hover:text-blue-600 hover:scale-110 hidden md:flex transition-all">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
             </button>
           </div>
@@ -449,7 +433,6 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
           <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 group hover:border-teal-400 hover:shadow-lg transition-all flex flex-col md:col-span-1">
             <div class="flex flex-col h-full">
               <div class="flex items-center justify-center gap-3 mb-3">
@@ -457,7 +440,6 @@
                 <h7 class="text-lg font-bold text-slate-950 break-keep">1. 대중적 호감도 및 메시지 전달력</h7>
               </div>
               <p class="text-sm text-slate-600 break-keep mb-6 text-center">캠페인이 국민에게 얼마나 잘 도달했고<br>메시지가 명확했는지를 보여주는 지표입니다.</p>
-              
               <div class="space-y-4 flex-grow flex flex-col justify-center">
                 <div class="relative pt-1">
                     <div class="flex mb-2 items-center justify-between">
@@ -488,7 +470,6 @@
                 <h7 class="text-lg font-bold text-slate-950 break-keep">2. 실제 행동 변화 유도 (실천율)</h7>
               </div>
               <p class="text-sm text-slate-600 break-keep mb-6 text-center">실제 에너지 절약 행동으로 이어진<br>'전환율' 데이터입니다.</p>
-              
               <div class="flex flex-col items-center justify-center py-10 bg-teal-50/50 rounded-2xl border border-teal-100/50 flex-grow w-full">
                 <span class="text-xs font-semibold inline-block mb-2 text-slate-500 uppercase text-center">최대 실천 전환율</span>
                 <span class="text-5xl lg:text-6xl font-extrabold text-teal-600 tracking-tighter transition-transform group-hover:scale-110">82.5<span class="text-3xl font-black">%</span></span>
@@ -496,14 +477,13 @@
             </div>
           </div>
 
-           <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 group hover:border-teal-400 hover:shadow-lg transition-all flex flex-col md:col-span-2">
+          <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 group hover:border-teal-400 hover:shadow-lg transition-all flex flex-col md:col-span-2">
             <div class="flex flex-col h-full">
               <div class="flex items-center justify-center gap-3 mb-3">
                 <span class="text-2xl">💡</span>
                 <h7 class="text-lg font-bold text-slate-950 break-keep">3. 경제적 효과 및 인식 제고</h7>
               </div>
               <p class="text-sm text-slate-600 break-keep mb-6 text-center">캠페인이 국민의 삶에 미친 실질적 영향력을 보여줍니다.</p>
-              
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-grow">
                  <div class="flex flex-col items-center justify-center gap-1.5 bg-teal-50 p-6 rounded-2xl border border-teal-100 transition-all group-hover:bg-teal-100/50">
                     <span class="text-xs font-bold text-slate-600 text-center">에너지 절약 중요성 인지</span>
@@ -516,12 +496,10 @@
               </div>
             </div>
           </div>
-          
         </div>
       </div>
 
       <div class="relative w-full max-w-4xl mx-auto overflow-hidden bg-slate-950/90 p-6 md:p-10 rounded-3xl shadow-2xl border-4 border-slate-900 group mt-24 md:mt-32">
-        
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 opacity-40 group-hover:opacity-70 transition-opacity duration-700">
           <img src="https://i.postimg.cc/3x9rYHwB/seong-gwa1.jpg" alt="성과 자료 1" class="w-full h-auto object-cover rounded-lg aspect-square shadow-md border border-slate-800">
           <img src="https://i.postimg.cc/Gp2LpS8c/seong-gwa2.jpg" alt="성과 자료 2" class="w-full h-auto object-cover rounded-lg aspect-square shadow-md border border-slate-800">
@@ -532,16 +510,13 @@
           <img src="https://i.postimg.cc/d07bpMZ0/sisangsig-sangpae.jpg" alt="상패" class="w-full h-auto object-cover rounded-lg aspect-[2/1] md:aspect-square shadow-md border border-slate-800 col-span-2 md:col-span-1">
           <img src="https://i.postimg.cc/kGCL2B1C/sisangsig-danche-sajin.jpg" alt="시상식 단체 사진" class="w-full h-auto object-cover rounded-lg aspect-square shadow-md border border-slate-800 hidden md:block">
         </div>
-
         <div class="absolute inset-0 flex items-center justify-center text-center p-8 z-20 pointer-events-none group-hover:scale-105 transition-transform duration-700">
           <h6 class="text-3xl md:text-5xl font-black text-white tracking-tighter break-keep leading-relaxed drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] transition-all max-w-3xl mx-auto">
             공공기관 표준화 캠페인 안착 <span class="text-2xl md:text-4xl font-medium text-white/70 mx-1 align-baseline">및</span> <br class="hidden md:block">공공브랜드대상 대상 수상
           </h6>
         </div>
-        
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent opacity-60 z-10"></div>
       </div>
-
     </div>
   </section>
 
@@ -552,7 +527,6 @@
       <p class="text-slate-400 text-sm md:text-base mb-12 max-w-2xl mx-auto break-keep leading-relaxed">
         새로운 도전과 협업을 기다리고 있습니다.<br>
       </p>
-      
       <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-16">
         <a href="mailto:gowoo28@gmail.com" class="flex items-center gap-3 text-white bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full transition-all border border-white/10 group w-full md:w-auto justify-center">
           <svg class="w-5 h-5 text-blue-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -563,7 +537,6 @@
           <span class="font-bold tracking-tight">010-8368-2022</span>
         </a>
       </div>
-      
       <p class="text-slate-600 text-xs font-semibold tracking-wider uppercase">
         © 2026 PARK SANG HYUN. ALL RIGHTS RESERVED.
       </p>
@@ -624,11 +597,9 @@
 
       if (prevBtn && nextBtn) {
         const scrollAmount = 400; 
-        
         prevBtn.addEventListener('click', () => {
           container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
-        
         nextBtn.addEventListener('click', () => {
           container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
