@@ -39,6 +39,11 @@
       user-select: none;
       -webkit-user-drag: none;
     }
+    
+    /* 스크롤바 부드럽게 (Safari 지원) */
+    .scroll-container {
+      -webkit-overflow-scrolling: touch;
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
@@ -233,45 +238,60 @@
       </div>
 
       <div class="max-w-7xl mx-auto w-full pb-24 relative z-10 flex flex-col items-center">
-        <div class="flex items-center gap-6 mb-16 w-full max-w-4xl mx-auto px-6">
-          <h4 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter">Strengths</h4>
-          <div class="h-1 flex-grow bg-slate-100"></div>
+        <div class="flex items-center justify-between gap-6 mb-12 w-full max-w-4xl mx-auto px-6">
+          <div class="flex items-center gap-6 flex-grow">
+            <h4 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter">Strengths</h4>
+            <div class="h-1 flex-grow bg-slate-100 hidden md:block"></div>
+          </div>
+          <div class="flex justify-end md:hidden">
+             <span class="text-[10px] font-bold text-slate-400 bg-slate-100 px-3 py-1.5 rounded-full tracking-wider shadow-inner">↔ 좌우로 스와이프</span>
+          </div>
         </div>
         
-        <div class="flex flex-nowrap items-center justify-start lg:justify-center -space-x-4 lg:-space-x-8 w-full max-w-7xl mx-auto py-10 px-6 overflow-x-auto lg:overflow-visible bg-transparent scroll-container cursor-grab active:cursor-grabbing">
+        <div class="relative w-full group carousel-wrapper">
+          <button class="prev-btn absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-full flex items-center justify-center text-slate-600 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50 hover:text-blue-600 hover:bg-white hidden md:flex">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
           
-          <div class="flex-shrink-0 relative z-10 group cursor-pointer hover:z-50 transition-all duration-300">
-            <div class="relative flex items-center justify-center w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] border border-blue-400 rounded-full bg-transparent group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:scale-105 group-hover:shadow-2xl transition-all duration-300 ease-out">
-              <div class="flex flex-col items-center justify-center text-center gap-1.5 w-full px-4 max-w-[140px] lg:max-w-[200px]">
-                <p class="text-lg lg:text-xl font-black text-blue-600 group-hover:text-white tracking-tight break-keep transition-colors duration-300 no-select">#분석 및 기획 능력</p>
+          <div class="scroll-container flex flex-nowrap items-center justify-start lg:justify-center gap-4 lg:-space-x-8 py-10 px-6 overflow-x-auto lg:overflow-visible bg-transparent snap-x snap-mandatory cursor-grab active:cursor-grabbing w-full max-w-7xl mx-auto">
+            
+            <div class="flex-shrink-0 relative z-10 group/item cursor-pointer hover:z-50 transition-all duration-300 snap-center">
+              <div class="relative flex items-center justify-center w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] border border-blue-400 rounded-full bg-transparent group-hover/item:bg-blue-600 group-hover/item:border-blue-600 group-hover/item:scale-105 group-hover/item:shadow-2xl transition-all duration-300 ease-out">
+                <div class="flex flex-col items-center justify-center text-center gap-1.5 w-full px-4 max-w-[140px] lg:max-w-[200px]">
+                  <p class="text-lg lg:text-xl font-black text-blue-600 group-hover/item:text-white tracking-tight break-keep transition-colors duration-300 no-select">#분석 및 기획 능력</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="flex-shrink-0 relative z-20 group cursor-pointer hover:z-50 transition-all duration-300">
-            <div class="relative flex items-center justify-center w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] border border-blue-400 rounded-full bg-transparent group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:scale-105 group-hover:shadow-2xl transition-all duration-300 ease-out">
-              <div class="flex flex-col items-center justify-center text-center gap-1.5 w-full px-4 max-w-[140px] lg:max-w-[200px]">
-                <p class="text-lg lg:text-xl font-black text-blue-600 group-hover:text-white tracking-tight break-keep transition-colors duration-300 no-select">#프로젝트 관리 능력</p>
+            <div class="flex-shrink-0 relative z-20 group/item cursor-pointer hover:z-50 transition-all duration-300 snap-center">
+              <div class="relative flex items-center justify-center w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] border border-blue-400 rounded-full bg-transparent group-hover/item:bg-blue-600 group-hover/item:border-blue-600 group-hover/item:scale-105 group-hover/item:shadow-2xl transition-all duration-300 ease-out">
+                <div class="flex flex-col items-center justify-center text-center gap-1.5 w-full px-4 max-w-[140px] lg:max-w-[200px]">
+                  <p class="text-lg lg:text-xl font-black text-blue-600 group-hover/item:text-white tracking-tight break-keep transition-colors duration-300 no-select">#프로젝트 관리 능력</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="flex-shrink-0 relative z-30 group cursor-pointer hover:z-50 transition-all duration-300">
-            <div class="relative flex items-center justify-center w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] border border-blue-400 rounded-full bg-transparent group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:scale-105 group-hover:shadow-2xl transition-all duration-300 ease-out">
-              <div class="flex flex-col items-center justify-center text-center gap-1.5 w-full px-4 max-w-[140px] lg:max-w-[200px]">
-                <p class="text-lg lg:text-xl font-black text-blue-600 group-hover:text-white tracking-tight break-keep transition-colors duration-300 no-select">#커뮤니케이션 능력</p>
+            <div class="flex-shrink-0 relative z-30 group/item cursor-pointer hover:z-50 transition-all duration-300 snap-center">
+              <div class="relative flex items-center justify-center w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] border border-blue-400 rounded-full bg-transparent group-hover/item:bg-blue-600 group-hover/item:border-blue-600 group-hover/item:scale-105 group-hover/item:shadow-2xl transition-all duration-300 ease-out">
+                <div class="flex flex-col items-center justify-center text-center gap-1.5 w-full px-4 max-w-[140px] lg:max-w-[200px]">
+                  <p class="text-lg lg:text-xl font-black text-blue-600 group-hover/item:text-white tracking-tight break-keep transition-colors duration-300 no-select">#커뮤니케이션 능력</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="flex-shrink-0 relative z-40 group cursor-pointer hover:z-50 transition-all duration-300">
-            <div class="relative flex items-center justify-center w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] border border-blue-400 rounded-full bg-transparent group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:scale-105 group-hover:shadow-2xl transition-all duration-300 ease-out">
-              <div class="flex flex-col items-center justify-center text-center gap-1.5 w-full px-2 max-w-[150px] lg:max-w-[200px]">
-                <p class="text-base lg:text-xl font-black text-blue-600 group-hover:text-white tracking-tight break-keep transition-colors duration-300 no-select">#AI 활용 능력</p>
+            <div class="flex-shrink-0 relative z-40 group/item cursor-pointer hover:z-50 transition-all duration-300 snap-center">
+              <div class="relative flex items-center justify-center w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] border border-blue-400 rounded-full bg-transparent group-hover/item:bg-blue-600 group-hover/item:border-blue-600 group-hover/item:scale-105 group-hover/item:shadow-2xl transition-all duration-300 ease-out">
+                <div class="flex flex-col items-center justify-center text-center gap-1.5 w-full px-2 max-w-[150px] lg:max-w-[200px]">
+                  <p class="text-base lg:text-xl font-black text-blue-600 group-hover/item:text-white tracking-tight break-keep transition-colors duration-300 no-select">#AI 활용 능력</p>
+                </div>
               </div>
             </div>
-          </div>
 
+          </div>
+          
+          <button class="next-btn absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-full flex items-center justify-center text-slate-600 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50 hover:text-blue-600 hover:bg-white hidden md:flex">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -287,7 +307,10 @@
       
       <div class="flex items-center gap-6 mb-16 md:mb-24 w-full max-w-4xl mx-auto">
         <h4 class="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter">Planning</h4>
-        <div class="h-1 flex-grow bg-slate-200"></div>
+        <div class="h-1 flex-grow bg-slate-200 hidden md:block"></div>
+        <div class="flex justify-end md:hidden">
+           <span class="text-[10px] font-bold text-slate-400 bg-white px-3 py-1.5 rounded-full border border-slate-200 tracking-wider shadow-sm">↔ 좌우로 스와이프</span>
+        </div>
       </div>
 
       <div class="space-y-16">
@@ -296,29 +319,37 @@
           <h5 class="text-xl md:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight whitespace-nowrap overflow-hidden text-ellipsis">데이터에서 전략까지, 기획의 전 과정을 설계하다</h5>
         </div>
 
-        <div class="relative w-full max-w-4xl mx-auto overflow-hidden bg-white p-6 md:p-10 rounded-3xl shadow-inner border border-slate-200">
+        <div class="relative w-full max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-3xl shadow-inner border border-slate-200 group carousel-wrapper">
+          <button class="prev-btn absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/95 backdrop-blur-md border border-slate-200 rounded-full flex items-center justify-center text-slate-600 shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 hover:text-blue-600 hover:scale-110 hidden md:flex">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+
           <div class="scroll-container flex flex-nowrap gap-6 overflow-x-auto pb-6 snap-x snap-mandatory items-center cursor-grab active:cursor-grabbing">
             
-            <div class="flex-shrink-0 w-[280px] md:w-[480px] aspect-video group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
-              <img src="https://i.postimg.cc/905kwrfx/dong-osigpumpeiji1.jpg" alt="제안서 페이지 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+            <div class="flex-shrink-0 w-[280px] md:w-[480px] aspect-video group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
+              <img src="https://i.postimg.cc/905kwrfx/dong-osigpumpeiji1.jpg" alt="제안서 페이지 1" class="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
-            <div class="flex-shrink-0 w-[280px] md:w-[480px] aspect-video group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
-              <img src="https://i.postimg.cc/mkY5YBzR/dong-osigpumpeiji2.jpg" alt="제안서 페이지 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+            <div class="flex-shrink-0 w-[280px] md:w-[480px] aspect-video group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
+              <img src="https://i.postimg.cc/mkY5YBzR/dong-osigpumpeiji2.jpg" alt="제안서 페이지 2" class="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
-            <div class="flex-shrink-0 w-[280px] md:w-[480px] aspect-video group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
-              <img src="https://i.postimg.cc/L5tbt2YL/dong-osigpumpeiji3.jpg" alt="제안서 페이지 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+            <div class="flex-shrink-0 w-[280px] md:w-[480px] aspect-video group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
+              <img src="https://i.postimg.cc/L5tbt2YL/dong-osigpumpeiji3.jpg" alt="제안서 페이지 3" class="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
             
-            <div class="flex-shrink-0 w-[280px] md:w-[480px] group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
-              <img src="https://i.postimg.cc/8PG31J9z/gongjehoe-peiji-1.jpg" alt="제안서 페이지 4" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+            <div class="flex-shrink-0 w-[280px] md:w-[480px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <img src="https://i.postimg.cc/8PG31J9z/gongjehoe-peiji-1.jpg" alt="제안서 페이지 4" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
-            <div class="flex-shrink-0 w-[280px] md:w-[480px] group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
-              <img src="https://i.postimg.cc/Fsvq9d8D/gongjehoe-peiji-2.jpg" alt="제안서 페이지 5" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+            <div class="flex-shrink-0 w-[280px] md:w-[480px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <img src="https://i.postimg.cc/Fsvq9d8D/gongjehoe-peiji-2.jpg" alt="제안서 페이지 5" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
-            <div class="flex-shrink-0 w-[280px] md:w-[480px] group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
-              <img src="https://i.postimg.cc/4N10n4RD/gongjehoe-peiji-3.jpg" alt="제안서 페이지 6" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+            <div class="flex-shrink-0 w-[280px] md:w-[480px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <img src="https://i.postimg.cc/4N10n4RD/gongjehoe-peiji-3.jpg" alt="제안서 페이지 6" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
           </div>
+          
+          <button class="next-btn absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/95 backdrop-blur-md border border-slate-200 rounded-full flex items-center justify-center text-slate-600 shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 hover:text-blue-600 hover:scale-110 hidden md:flex">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
 
         <div class="max-w-4xl mx-auto text-center mt-6 px-6">
@@ -331,7 +362,10 @@
 
       <div class="flex items-center gap-6 mb-16 md:mb-24 w-full max-w-4xl mx-auto pt-32 md:pt-40 relative z-10">
         <h4 class="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter">Management</h4>
-        <div class="h-1 flex-grow bg-slate-200"></div>
+        <div class="h-1 flex-grow bg-slate-200 hidden md:block"></div>
+        <div class="flex justify-end md:hidden">
+           <span class="text-[10px] font-bold text-slate-400 bg-white px-3 py-1.5 rounded-full border border-slate-200 tracking-wider shadow-sm">↔ 좌우로 스와이프</span>
+        </div>
       </div>
 
       <div class="space-y-12">
@@ -340,30 +374,38 @@
           <h5 class="text-xl md:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight whitespace-nowrap overflow-hidden text-ellipsis">대표 프로젝트: 범국민 에너지 절약 공동캠페인</h5>
         </div>
 
-        <div class="relative w-full max-w-4xl mx-auto overflow-hidden bg-white p-6 md:p-10 rounded-3xl shadow-inner border border-slate-200">
+        <div class="relative w-full max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-3xl shadow-inner border border-slate-200 group carousel-wrapper">
+          <button class="prev-btn absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/95 backdrop-blur-md border border-slate-200 rounded-full flex items-center justify-center text-slate-600 shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 hover:text-teal-600 hover:scale-110 hidden md:flex">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+
           <div class="scroll-container flex flex-nowrap gap-6 overflow-x-auto pb-6 snap-x snap-mandatory items-center cursor-grab active:cursor-grabbing">
-            <div class="flex-shrink-0 w-[260px] md:w-[440px] group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
-              <img src="https://i.postimg.cc/LXNT251N/beomgugmin-eneoji-jeol-yag-halu-1k-Wh-jul-igi-gongdongkaempein-haengdong-yubalpyeon(hajeolgi)-40cho-MASTER-mp4-000004838.png" alt="에너지 캠페인 광고 1" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+            <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <img src="https://i.postimg.cc/LXNT251N/beomgugmin-eneoji-jeol-yag-halu-1k-Wh-jul-igi-gongdongkaempein-haengdong-yubalpyeon(hajeolgi)-40cho-MASTER-mp4-000004838.png" alt="에너지 캠페인 광고 1" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
-            <div class="flex-shrink-0 w-[260px] md:w-[440px] group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
-              <img src="https://i.postimg.cc/FzzxRvbv/beomgugmin-eneoji-jeol-yag-halu-1k-Wh-jul-igi-gongdongkaempein-insigjegopyeon(yeonjung)-40cho-MASTER-mp4-000031164.png" alt="에너지 캠페인 광고 2" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+            <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <img src="https://i.postimg.cc/FzzxRvbv/beomgugmin-eneoji-jeol-yag-halu-1k-Wh-jul-igi-gongdongkaempein-insigjegopyeon(yeonjung)-40cho-MASTER-mp4-000031164.png" alt="에너지 캠페인 광고 2" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
-            <div class="flex-shrink-0 w-[260px] md:w-[440px] group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
-              <img src="https://i.postimg.cc/GtfxTfz2/chaj-ala-yeoleumcheol-saenghwal-sog-eneojisenseu-juhyeon-yeong-X-chyu-mp4-000002126.png" alt="에너지 캠페인 광고 3" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+            <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <img src="https://i.postimg.cc/GtfxTfz2/chaj-ala-yeoleumcheol-saenghwal-sog-eneojisenseu-juhyeon-yeong-X-chyu-mp4-000002126.png" alt="에너지 캠페인 광고 3" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
-            <div class="flex-shrink-0 w-[260px] md:w-[440px] group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
-              <img src="https://i.postimg.cc/0j40K4Zf/(juhyeon-yeong-Xchyu)-chaj-ala-saenghwal-sog-eneoji-senseu-gyeoulpyeon-mp4-000004712.png" alt="에너지 캠페인 광고 4" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+            <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <img src="https://i.postimg.cc/0j40K4Zf/(juhyeon-yeong-Xchyu)-chaj-ala-saenghwal-sog-eneoji-senseu-gyeoulpyeon-mp4-000004712.png" alt="에너지 캠페인 광고 4" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
-            <div class="flex-shrink-0 w-[260px] md:w-[440px] group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
-              <img src="https://i.postimg.cc/026f182f/2025nyeon-beomgugmin-eneojijeol-yag-gongdongkaempein-hajeolgi-gwang-go(40s)-MASTER-mp4-000001126.png" alt="에너지 캠페인 광고 5" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+            <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <img src="https://i.postimg.cc/026f182f/2025nyeon-beomgugmin-eneojijeol-yag-gongdongkaempein-hajeolgi-gwang-go(40s)-MASTER-mp4-000001126.png" alt="에너지 캠페인 광고 5" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
-            <div class="flex-shrink-0 w-[260px] md:w-[440px] group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
-              <img src="https://i.postimg.cc/kgKvDfSt/2025nyeon-beomgugmin-eneojijeol-yag-gongdongkaempein-dongjeolgi-gwang-go(40s)-MASTER-mp4-000035618.png" alt="에너지 캠페인 광고 6" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+            <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <img src="https://i.postimg.cc/kgKvDfSt/2025nyeon-beomgugmin-eneojijeol-yag-gongdongkaempein-dongjeolgi-gwang-go(40s)-MASTER-mp4-000035618.png" alt="에너지 캠페인 광고 6" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
-             <div class="flex-shrink-0 w-[260px] md:w-[440px] group relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
-              <img src="https://i.postimg.cc/zBtn4Qs2/2025nyeon-beomgugmin-eneojijeol-yag-gongdongkaempein-dongjeolgi-gwang-go(40s)-MASTER-mp4-000039998.png" alt="에너지 캠페인 광고 7" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 no-select">
+             <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <img src="https://i.postimg.cc/zBtn4Qs2/2025nyeon-beomgugmin-eneojijeol-yag-gongdongkaempein-dongjeolgi-gwang-go(40s)-MASTER-mp4-000039998.png" alt="에너지 캠페인 광고 7" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
             </div>
           </div>
+          
+          <button class="next-btn absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/95 backdrop-blur-md border border-slate-200 rounded-full flex items-center justify-center text-slate-600 shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 hover:text-teal-600 hover:scale-110 hidden md:flex">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
 
         <div class="max-w-4xl mx-auto bg-white p-8 md:p-10 rounded-3xl border border-slate-100 shadow-sm mt-6">
@@ -482,6 +524,7 @@
   </section>
 
   <script>
+    // 드래그 스크롤
     const sliders = document.querySelectorAll('.scroll-container');
     let isDown = false;
     let startX;
@@ -491,8 +534,7 @@
       slider.addEventListener('mousedown', (e) => {
         isDown = true;
         slider.style.cursor = 'grabbing';
-        // 드래그 중 스냅 기능 일시 해제하여 부드러운 스크롤 구현
-        slider.style.scrollSnapType = 'none'; 
+        slider.style.scrollSnapType = 'none'; // 드래그 중 스냅 일시 해제
         startX = e.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
       });
@@ -500,22 +542,41 @@
       slider.addEventListener('mouseleave', () => {
         isDown = false;
         slider.style.cursor = 'grab';
-        slider.style.scrollSnapType = ''; // 스냅 복구
+        slider.style.scrollSnapType = ''; 
       });
       
       slider.addEventListener('mouseup', () => {
         isDown = false;
         slider.style.cursor = 'grab';
-        slider.style.scrollSnapType = ''; // 스냅 복구
+        slider.style.scrollSnapType = ''; 
       });
       
       slider.addEventListener('mousemove', (e) => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1.5; // 스크롤 속도 조절
+        const walk = (x - startX) * 1.5; 
         slider.scrollLeft = scrollLeft - walk;
       });
+    });
+
+    // 버튼 클릭 스크롤
+    document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
+      const container = wrapper.querySelector('.scroll-container');
+      const prevBtn = wrapper.querySelector('.prev-btn');
+      const nextBtn = wrapper.querySelector('.next-btn');
+
+      if (prevBtn && nextBtn) {
+        const scrollAmount = 400; // 한 번 클릭 시 이동할 픽셀량
+        
+        prevBtn.addEventListener('click', () => {
+          container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+        
+        nextBtn.addEventListener('click', () => {
+          container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+      }
     });
   </script>
 </body>
