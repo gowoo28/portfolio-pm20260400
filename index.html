@@ -27,7 +27,7 @@
     /* 모바일 스와이프 안내 애니메이션 */
     @keyframes swipe {
       0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(4px); }
+      50% { transform: translateX(-6px); }
     }
     .animate-swipe { animation: swipe 1.5s ease-in-out infinite; }
 
@@ -254,18 +254,6 @@
         </div>
         
         <div class="relative w-full carousel-wrapper max-w-7xl mx-auto px-4">
-          
-          <div class="swipe-indicator absolute bottom-2 right-6 z-40 md:hidden pointer-events-none transition-opacity duration-500 animate-swipe">
-            <span class="bg-blue-600/90 text-white text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
-              스와이프 
-              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
-            </span>
-          </div>
-
-          <button class="prev-btn absolute left-0 lg:left-8 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-slate-200 rounded-full items-center justify-center text-slate-600 shadow-[0_4px_15px_-3px_rgba(0,0,0,0.1)] z-50 hover:text-blue-600 hover:scale-110 hidden md:flex transition-all">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-          </button>
-          
           <div class="scroll-container flex flex-nowrap items-center justify-start lg:justify-center gap-4 lg:-space-x-8 py-10 overflow-x-auto lg:overflow-visible bg-transparent snap-x snap-mandatory cursor-grab active:cursor-grabbing w-full">
             
             <div class="flex-shrink-0 relative z-10 group/item cursor-pointer hover:z-50 transition-all duration-300 snap-center">
@@ -301,10 +289,6 @@
             </div>
 
           </div>
-          
-          <button class="next-btn absolute right-0 lg:right-8 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-slate-200 rounded-full items-center justify-center text-slate-600 shadow-[0_4px_15px_-3px_rgba(0,0,0,0.1)] z-50 hover:text-blue-600 hover:scale-110 hidden md:flex transition-all">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-          </button>
         </div>
       </div>
     </div>
@@ -320,7 +304,7 @@
       
       <div class="flex items-center gap-6 mb-16 md:mb-24 w-full max-w-4xl mx-auto">
         <h4 class="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter">Planning</h4>
-        <div class="h-1 flex-grow bg-slate-200"></div>
+        <div class="h-1 flex-grow bg-slate-200 hidden md:block"></div>
       </div>
 
       <div class="space-y-16">
@@ -333,8 +317,9 @@
           
           <div class="relative carousel-wrapper">
             
-            <div class="swipe-indicator absolute bottom-4 right-4 z-40 md:hidden pointer-events-none transition-opacity duration-500 animate-swipe">
-              <span class="bg-slate-900/80 text-white text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
+            <div class="swipe-indicator absolute top-1/2 right-2 -translate-y-1/2 z-40 md:hidden pointer-events-none transition-opacity duration-500 animate-swipe">
+              <span class="bg-slate-900/80 text-white text-[11px] font-bold px-3 py-2 rounded-full shadow-lg flex items-center gap-1.5 backdrop-blur-sm">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
                 스와이프 
                 <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
               </span>
@@ -345,22 +330,22 @@
             </button>
 
             <div class="scroll-container flex flex-nowrap gap-6 overflow-x-auto pb-4 snap-x snap-mandatory items-center cursor-grab active:cursor-grabbing">
-              <div class="flex-shrink-0 w-[280px] md:w-[480px] aspect-video group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
+              <div class="flex-shrink-0 w-[85%] md:w-[480px] aspect-video group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
                 <img src="https://i.postimg.cc/905kwrfx/dong-osigpumpeiji1.jpg" alt="제안서 페이지 1" class="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
-              <div class="flex-shrink-0 w-[280px] md:w-[480px] aspect-video group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
+              <div class="flex-shrink-0 w-[85%] md:w-[480px] aspect-video group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
                 <img src="https://i.postimg.cc/mkY5YBzR/dong-osigpumpeiji2.jpg" alt="제안서 페이지 2" class="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
-              <div class="flex-shrink-0 w-[280px] md:w-[480px] aspect-video group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
+              <div class="flex-shrink-0 w-[85%] md:w-[480px] aspect-video group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg flex items-center bg-slate-50 snap-center">
                 <img src="https://i.postimg.cc/L5tbt2YL/dong-osigpumpeiji3.jpg" alt="제안서 페이지 3" class="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
-              <div class="flex-shrink-0 w-[280px] md:w-[480px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <div class="flex-shrink-0 w-[85%] md:w-[480px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
                 <img src="https://i.postimg.cc/8PG31J9z/gongjehoe-peiji-1.jpg" alt="제안서 페이지 4" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
-              <div class="flex-shrink-0 w-[280px] md:w-[480px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <div class="flex-shrink-0 w-[85%] md:w-[480px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
                 <img src="https://i.postimg.cc/Fsvq9d8D/gongjehoe-peiji-2.jpg" alt="제안서 페이지 5" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
-              <div class="flex-shrink-0 w-[280px] md:w-[480px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <div class="flex-shrink-0 w-[85%] md:w-[480px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
                 <img src="https://i.postimg.cc/4N10n4RD/gongjehoe-peiji-3.jpg" alt="제안서 페이지 6" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
             </div>
@@ -393,8 +378,9 @@
           
           <div class="relative carousel-wrapper">
             
-            <div class="swipe-indicator absolute bottom-4 right-4 z-40 md:hidden pointer-events-none transition-opacity duration-500 animate-swipe">
-              <span class="bg-slate-900/80 text-white text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1 backdrop-blur-sm">
+            <div class="swipe-indicator absolute top-1/2 right-2 -translate-y-1/2 z-40 md:hidden pointer-events-none transition-opacity duration-500 animate-swipe">
+              <span class="bg-slate-900/80 text-white text-[11px] font-bold px-3 py-2 rounded-full shadow-lg flex items-center gap-1.5 backdrop-blur-sm">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
                 스와이프 
                 <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
               </span>
@@ -405,25 +391,25 @@
             </button>
 
             <div class="scroll-container flex flex-nowrap gap-6 overflow-x-auto pb-4 snap-x snap-mandatory items-center cursor-grab active:cursor-grabbing">
-              <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <div class="flex-shrink-0 w-[85%] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
                 <img src="https://i.postimg.cc/LXNT251N/beomgugmin-eneoji-jeol-yag-halu-1k-Wh-jul-igi-gongdongkaempein-haengdong-yubalpyeon(hajeolgi)-40cho-MASTER-mp4-000004838.png" alt="에너지 캠페인 광고 1" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
-              <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <div class="flex-shrink-0 w-[85%] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
                 <img src="https://i.postimg.cc/FzzxRvbv/beomgugmin-eneoji-jeol-yag-halu-1k-Wh-jul-igi-gongdongkaempein-insigjegopyeon(yeonjung)-40cho-MASTER-mp4-000031164.png" alt="에너지 캠페인 광고 2" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
-              <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <div class="flex-shrink-0 w-[85%] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
                 <img src="https://i.postimg.cc/GtfxTfz2/chaj-ala-yeoleumcheol-saenghwal-sog-eneojisenseu-juhyeon-yeong-X-chyu-mp4-000002126.png" alt="에너지 캠페인 광고 3" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
-              <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <div class="flex-shrink-0 w-[85%] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
                 <img src="https://i.postimg.cc/0j40K4Zf/(juhyeon-yeong-Xchyu)-chaj-ala-saenghwal-sog-eneoji-senseu-gyeoulpyeon-mp4-000004712.png" alt="에너지 캠페인 광고 4" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
-              <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <div class="flex-shrink-0 w-[85%] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
                 <img src="https://i.postimg.cc/026f182f/2025nyeon-beomgugmin-eneojijeol-yag-gongdongkaempein-hajeolgi-gwang-go(40s)-MASTER-mp4-000001126.png" alt="에너지 캠페인 광고 5" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
-              <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+              <div class="flex-shrink-0 w-[85%] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
                 <img src="https://i.postimg.cc/kgKvDfSt/2025nyeon-beomgugmin-eneojijeol-yag-gongdongkaempein-dongjeolgi-gwang-go(40s)-MASTER-mp4-000035618.png" alt="에너지 캠페인 광고 6" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
-               <div class="flex-shrink-0 w-[260px] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
+               <div class="flex-shrink-0 w-[85%] md:w-[440px] group/img relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg snap-center">
                 <img src="https://i.postimg.cc/zBtn4Qs2/2025nyeon-beomgugmin-eneojijeol-yag-gongdongkaempein-dongjeolgi-gwang-go(40s)-MASTER-mp4-000039998.png" alt="에너지 캠페인 광고 7" class="w-full h-auto object-cover transition-transform duration-500 group-hover/img:scale-110 no-select">
               </div>
             </div>
@@ -454,15 +440,15 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 group hover:border-teal-400 hover:shadow-lg transition-all flex flex-col justify-between md:col-span-1">
-            <div>
-              <div class="flex items-center gap-3 mb-3">
+          <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 group hover:border-teal-400 hover:shadow-lg transition-all flex flex-col md:col-span-1 h-full">
+            <div class="flex flex-col h-full">
+              <div class="flex items-center justify-center gap-3 mb-3">
                 <span class="text-2xl">😊</span>
                 <h7 class="text-lg font-bold text-slate-950 break-keep">1. 대중적 호감도 및 메시지 전달력</h7>
               </div>
-              <p class="text-sm text-slate-600 break-keep mb-6">캠페인이 국민에게 얼마나 잘 도달했고<br>메시지가 명확했는지를 보여주는 지표입니다.</p>
+              <p class="text-sm text-slate-600 break-keep mb-6 text-center">캠페인이 국민에게 얼마나 잘 도달했고<br>메시지가 명확했는지를 보여주는 지표입니다.</p>
               
-              <div class="space-y-4">
+              <div class="space-y-4 flex-grow flex flex-col justify-center">
                 <div class="relative pt-1">
                     <div class="flex mb-2 items-center justify-between">
                         <div><span class="text-[10px] md:text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-50 border border-teal-100">광고 선호도</span></div>
@@ -485,36 +471,36 @@
             </div>
           </div>
 
-          <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 group hover:border-teal-400 hover:shadow-lg transition-all flex flex-col justify-between md:col-span-1">
-            <div>
-              <div class="flex items-center gap-3 mb-3">
+          <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 group hover:border-teal-400 hover:shadow-lg transition-all flex flex-col md:col-span-1 h-full">
+            <div class="flex flex-col h-full">
+              <div class="flex items-center justify-center gap-3 mb-3">
                 <span class="text-2xl">🎯</span>
                 <h7 class="text-lg font-bold text-slate-950 break-keep">2. 실제 행동 변화 유도 (실천율)</h7>
               </div>
-              <p class="text-sm text-slate-600 break-keep mb-6">실제 에너지 절약 행동으로 이어진<br>'전환율' 데이터입니다.</p>
+              <p class="text-sm text-slate-600 break-keep mb-6 text-center">실제 에너지 절약 행동으로 이어진<br>'전환율' 데이터입니다.</p>
               
-              <div class="flex flex-col items-center justify-center py-6 bg-teal-50/50 rounded-2xl border border-teal-100/50 h-full">
-                <span class="text-xs font-semibold inline-block mb-2 text-slate-500 uppercase">최대 실천 전환율</span>
+              <div class="flex flex-col items-center justify-center py-10 bg-teal-50/50 rounded-2xl border border-teal-100/50 flex-grow w-full">
+                <span class="text-xs font-semibold inline-block mb-2 text-slate-500 uppercase text-center">최대 실천 전환율</span>
                 <span class="text-5xl lg:text-6xl font-extrabold text-teal-600 tracking-tighter transition-transform group-hover:scale-110">82.5<span class="text-3xl font-black">%</span></span>
               </div>
             </div>
           </div>
 
-           <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 group hover:border-teal-400 hover:shadow-lg transition-all flex flex-col justify-between md:col-span-2">
-            <div>
-              <div class="flex items-center gap-3 mb-3">
+           <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-5 group hover:border-teal-400 hover:shadow-lg transition-all flex flex-col md:col-span-2">
+            <div class="flex flex-col h-full">
+              <div class="flex items-center justify-center gap-3 mb-3">
                 <span class="text-2xl">💡</span>
                 <h7 class="text-lg font-bold text-slate-950 break-keep">3. 경제적 효과 및 인식 제고</h7>
               </div>
-              <p class="text-sm text-slate-600 break-keep mb-6">캠페인이 국민의 삶에 미친 실질적 영향력을 보여줍니다.</p>
+              <p class="text-sm text-slate-600 break-keep mb-6 text-center">캠페인이 국민의 삶에 미친 실질적 영향력을 보여줍니다.</p>
               
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                 <div class="flex flex-col justify-center gap-1.5 bg-teal-50 p-6 rounded-2xl border border-teal-100 transition-all group-hover:bg-teal-100/50">
-                    <span class="text-xs font-bold text-slate-600">에너지 절약 중요성 인지</span>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-grow">
+                 <div class="flex flex-col items-center justify-center gap-1.5 bg-teal-50 p-6 rounded-2xl border border-teal-100 transition-all group-hover:bg-teal-100/50">
+                    <span class="text-xs font-bold text-slate-600 text-center">에너지 절약 중요성 인지</span>
                     <span class="text-4xl lg:text-5xl font-extrabold text-teal-600 tracking-tighter">96.2<span class="text-2xl font-black">%</span></span>
                  </div>
-                 <div class="flex flex-col justify-center gap-1.5 bg-teal-50 p-6 rounded-2xl border border-teal-100 transition-all group-hover:bg-teal-100/50">
-                    <span class="text-xs font-bold text-slate-600">전기요금 절감 체감</span>
+                 <div class="flex flex-col items-center justify-center gap-1.5 bg-teal-50 p-6 rounded-2xl border border-teal-100 transition-all group-hover:bg-teal-100/50">
+                    <span class="text-xs font-bold text-slate-600 text-center">전기요금 절감 체감</span>
                     <span class="text-4xl lg:text-5xl font-extrabold text-teal-600 tracking-tighter">50.4<span class="text-2xl font-black">%</span></span>
                  </div>
               </div>
